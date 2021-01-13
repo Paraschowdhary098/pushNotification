@@ -1,0 +1,20 @@
+
+<div class="container">
+  <form [formGroup]="bookForm" (submit)="submitedForm()">
+    <div>
+      <label class="form-label" for="authorname">Author Name</label>
+      <input type="text" class="form-control" placeholder="Please enter author name" [class.is-invalid]="bookForm.get('author').invalid && bookForm.get('author').touched " formControlName="author"  name="" id="authorname">
+      <span style="color: red;" *ngIf="!bookForm.get('author').valid && bookForm.get('author').touched ">Please enter valid author name</span>
+    </div>
+    <div class="mt-2">
+      <label class="form-label" for="bookname">Book Name</label>
+      <input type="text" class="form-control" placeholder="Please enter book name" formControlName="book" name="" id="bookname">
+      <span style="color: red;" *ngIf="!bookForm.get('book').valid && bookForm.get('book').touched ">Please enter valid book name</span>
+    </div>
+    <div class="mt-2">
+      <button class="btn btn-primary" type="submit" [disabled]="!bookForm.valid" >Add book</button>
+    </div>
+
+  </form>
+</div>
+
